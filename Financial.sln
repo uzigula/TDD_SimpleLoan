@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+# SharpDevelop 4.3
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Financial", "Financial\Financial.csproj", "{C5E6D845-FD89-441B-B388-9A035A2EC947}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Financial.Test", "Financial.Test\Financial.Test.csproj", "{9B645201-905D-47D2-86E5-4A5EB35C0024}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C5E6D845-FD89-441B-B388-9A035A2EC947}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5E6D845-FD89-441B-B388-9A035A2EC947}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5E6D845-FD89-441B-B388-9A035A2EC947}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5E6D845-FD89-441B-B388-9A035A2EC947}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B645201-905D-47D2-86E5-4A5EB35C0024}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B645201-905D-47D2-86E5-4A5EB35C0024}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B645201-905D-47D2-86E5-4A5EB35C0024}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B645201-905D-47D2-86E5-4A5EB35C0024}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+EndGlobal

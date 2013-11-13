@@ -1,0 +1,6 @@
+*.suo
+/packages
+/Financial/bin
+/Financial/obj
+/Financial.Test/bin
+/Financial.Test/obj
