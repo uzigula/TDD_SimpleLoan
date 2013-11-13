@@ -28,5 +28,14 @@ namespace Financial.Test
             var quota = loan.GetQuota(capital, rate/100, term);
             quota.Should().Be(quotaExpected);
         }
+
+        [Test]
+        public void GetQuota_When_Capital_5000_Rate_10_Term_10_Return_Quota_Capital_500_Rate_50()
+        {
+            var quota = loan.GetQuota(5000,0.1,10);
+            quota.Capital.Should().Be(500);
+            quota.RateAmount.Should().Be(50);
+            quota.Total.Should().Be(550);
+        }
     }
 }
