@@ -12,12 +12,19 @@ namespace Financial.Test
     public class QuotaEngineTest
     {
         [Test]
-        public void GetQuota_When_Capital_1000_and_Interes_1_Term_10_Return_110()
+        public void GetQuota_When_Capital_1000_and_Interes_1_Term_10_Return_101()
         {
             var loan = new QuotaEngine();
             var quota = loan.GetQuota(1000, 0.01, 10);
-            quota.Should().Be(110);
+            quota.Should().Be(101);
 
+        }
+        [Test]
+        public void GetQuota_When_Capital_600_and_Interes_1_Term_6_Return_101()
+        {
+            var loan = new QuotaEngine();
+            var quota = loan.GetQuota(600, 0.01, 6);
+            quota.Should().Be(101);
         }
     }
 }

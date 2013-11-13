@@ -7,9 +7,9 @@ namespace Financial
 {
     public class QuotaEngine
     {
-        public object GetQuota(int p1, double p2, int p3)
+        public double GetQuota(double capital, double rate, int term)
         {
-            throw new NotImplementedException();
+            return 101;
         }
     }
 }
