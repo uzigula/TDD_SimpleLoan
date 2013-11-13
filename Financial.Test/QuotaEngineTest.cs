@@ -11,10 +11,15 @@ namespace Financial.Test
     [TestFixture]
     public class QuotaEngineTest
     {
+        private QuotaEngine loan;
+        [SetUp]
+        public void Setup()
+        {
+            loan = new QuotaEngine();
+        }
         [Test]
         public void GetQuota_When_Capital_1000_and_Interes_1_Term_10_Return_101()
         {
-            var loan = new QuotaEngine();
             var quota = loan.GetQuota(1000, 0.01, 10);
             quota.Should().Be(101);
 
