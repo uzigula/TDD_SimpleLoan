@@ -9,7 +9,7 @@ namespace Financial
     {
         public double GetQuota(double capital, double rate, int term)
         {
-            return 101;
+            return ((capital*(1+rate))/term);
         }
     }
 }
