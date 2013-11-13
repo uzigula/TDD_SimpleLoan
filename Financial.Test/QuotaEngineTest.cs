@@ -20,11 +20,11 @@ namespace Financial.Test
 
         }
         [Test]
-        public void GetQuota_When_Capital_600_and_Interes_1_Term_6_Return_101()
+        public void GetQuota_When_Capital_600_and_Interes_1_Term_10_Return_101()
         {
             var loan = new QuotaEngine();
-            var quota = loan.GetQuota(600, 0.01, 6);
-            quota.Should().Be(101);
+            var quota = loan.GetQuota(600, 0.01, 10);
+            quota.Should().Be(60.6);
         }
     }
 }
