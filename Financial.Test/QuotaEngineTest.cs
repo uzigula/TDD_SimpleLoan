@@ -19,23 +19,18 @@ namespace Financial.Test
         }
 
         [Test]
-        [TestCase(1000,1,10,101)]
-        [TestCase(600, 1, 10, 60.6)]
-        [TestCase(5000, 10, 10, 550)]
-        public void GetQuota_Given_Capital_Rate_And_Term_Return_Quota(double capital, double rate, int term,
-                                                                      double quotaExpected)
+        [TestCase(1000, 1, 10, 100,1,101)]
+        [TestCase(600, 1, 10, 60,0.6,60.6)]
+        [TestCase(5000, 10, 10, 500,50,550)]
+        public void GetQuota_When_Capital_5000_Rate_10_Term_10_Return_Quota_Capital_500_Rate_50(double capital, double rate, int term,
+                                                                      double quotaCapital, double quotaRateAmmount, double quotaExpected)
         {
-            var quota = loan.GetQuota(capital, rate/100, term);
+            var quota = loan.GetQuota(capital,rate/100,term);
+            quota.Capital.Should().Be(quotaCapital);
+            quota.RateAmount.Should().Be(quotaRateAmmount);
             quota.Total.Should().Be(quotaExpected);
         }
 
-        [Test]
-        public void GetQuota_When_Capital_5000_Rate_10_Term_10_Return_Quota_Capital_500_Rate_50()
-        {
-            var quota = loan.GetQuota(5000,0.1,10);
-            quota.Capital.Should().Be(500);
-            quota.RateAmount.Should().Be(50);
-            quota.Total.Should().Be(550);
-        }
+
     }
 }
