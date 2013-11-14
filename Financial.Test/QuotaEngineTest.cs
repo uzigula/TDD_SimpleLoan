@@ -26,7 +26,7 @@ namespace Financial.Test
                                                                       double quotaExpected)
         {
             var quota = loan.GetQuota(capital, rate/100, term);
-            quota.Should().Be(quotaExpected);
+            quota.Total.Should().Be(quotaExpected);
         }
 
         [Test]
