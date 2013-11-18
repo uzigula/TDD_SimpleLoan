@@ -27,13 +27,15 @@ namespace Financial
             return quota;
         }
 
-        public List<Quota> GetPaymentCalendar()
+        public PaymentCalendar GetPaymentCalendar()
         {
-            var calendar = new List<Quota>();
+            var calendar = new PaymentCalendar();
+            var quotas = new List<Quota>();
             for (int i = 0; i < _term; i++)
             {
-                calendar.Add(new Quota());
+                quotas.Add(new Quota { Capital = _capital / _term, RateAmount = (_capital / _term) * _rate });
             }
+            calendar.Quotas = quotas;
             return calendar;
         }
     }

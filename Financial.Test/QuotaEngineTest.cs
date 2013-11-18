@@ -32,8 +32,8 @@ namespace Financial.Test
         {
             var loan = new QuotaEngine(5000, 0.1, 10);
             var calendar = loan.GetPaymentCalendar();
-            calendar.Should().BeOfType<List<Quota>>();
-            calendar.Count.Should().Be(10);
+            calendar.Should().BeOfType<PaymentCalendar>();
+            calendar.Quotas.Count.Should().Be(10);
         }
 
         [Test]
