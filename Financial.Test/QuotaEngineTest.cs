@@ -47,5 +47,18 @@ namespace Financial.Test
             calendar.TotalRate.Should().Be(500);
 
         }
+
+        [Test]
+        public void GetCalendar_When_Capital_3000_Rate_20_Term_12_Return_Calendar_TotalRate_600_TotalCapital_3000()
+        {
+            var loan = new QuotaEngine(3000, 0.2, 12);
+            var calendar = loan.GetPaymentCalendar();
+            calendar.Should().BeOfType<PaymentCalendar>();
+            calendar.Quotas.Should().BeOfType<List<Quota>>();
+            calendar.Quotas.Count.Should().Be(12);
+            calendar.TotalRate.Should().Be(600);
+            calendar.TotalCapital.Should().Be(3000);
+
+        }
     }
 }

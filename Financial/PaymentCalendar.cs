@@ -9,5 +9,6 @@ namespace Financial
     {
         public List<Quota> Quotas { get; set; }
         public double TotalRate { get { return Quotas.Sum(x => x.RateAmount); } }
+        public double TotalCapital { get { return Quotas.Sum(x => x.Capital); } }
     }
 }
