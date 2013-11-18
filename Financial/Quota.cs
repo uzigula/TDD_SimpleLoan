@@ -10,5 +10,6 @@ namespace Financial
         public Double Capital { get; set; }
         public Double RateAmount { get; set; }
         public Double Total { get { return Capital + RateAmount; } }
+        public DateTime Expire { get; set; }
     }
 }

@@ -19,7 +19,7 @@ namespace Financial.Test
         public void GetQuota_When_Capital_5000_Rate_10_Term_10_Return_Quota_Capital_500_Rate_50(double capital, double rate, int term,
                                                                       double quotaCapital, double quotaRateAmmount, double quotaExpected)
         {
-            var loan = new QuotaEngine(capital, rate/100, term);
+            var loan = new QuotaEngine(capital, rate/100, term,DateTime.Now);
             var quota = loan.GetQuota();
             quota.Capital.Should().Be(quotaCapital);
             quota.RateAmount.Should().Be(quotaRateAmmount);
@@ -30,7 +30,7 @@ namespace Financial.Test
 
         public void GetCalendar_When_Capital_5000_Rate_10_Term_10_Return_Calendar_With_Ten_Quotas()
         {
-            var loan = new QuotaEngine(5000, 0.1, 10);
+            var loan = new QuotaEngine(5000, 0.1, 10,DateTime.Now);
             var calendar = loan.GetPaymentCalendar();
             calendar.Should().BeOfType<PaymentCalendar>();
             calendar.Quotas.Count.Should().Be(10);
@@ -39,7 +39,7 @@ namespace Financial.Test
         [Test]
         public void GetCalendar_When_Capital_5000_Rate_10_Term_10_Return_Calendar_TotalRate_500()
         {
-            var loan = new QuotaEngine(5000, 0.1, 10);
+            var loan = new QuotaEngine(5000, 0.1, 10,DateTime.Now);
             var calendar = loan.GetPaymentCalendar();
             calendar.Should().BeOfType<PaymentCalendar>();
             calendar.Quotas.Should().BeOfType<List<Quota>>();
@@ -51,7 +51,7 @@ namespace Financial.Test
         [Test]
         public void GetCalendar_When_Capital_3000_Rate_20_Term_12_Return_Calendar_TotalRate_600_TotalCapital_3000()
         {
-            var loan = new QuotaEngine(3000, 0.2, 12);
+            var loan = new QuotaEngine(3000, 0.2, 12,DateTime.Now);
             var calendar = loan.GetPaymentCalendar();
             calendar.Should().BeOfType<PaymentCalendar>();
             calendar.Quotas.Should().BeOfType<List<Quota>>();
