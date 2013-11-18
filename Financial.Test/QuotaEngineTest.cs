@@ -30,5 +30,15 @@ namespace Financial.Test
             quota.RateAmount.Should().Be(quotaRateAmmount);
             quota.Total.Should().Be(quotaExpected);
         }
+
+        [Test]
+
+        public void GetCalendar_When_Capital_5000_Rate_10_Term_10_Return_Calendar_With_Ten_Quotas()
+        {
+            var loan = new QuotaEngine(5000, 0.1, 10);
+            var calendar = loan.GetPaymentCalendar();
+            calendar.Should().BeOfType<List<Quota>>();
+            calendar.Count.Should().Be(10);
+        }
     }
 }
