@@ -41,6 +41,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LoanPayment.cs" />
     <Compile Include="PaymentCalendar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quota.cs" />
