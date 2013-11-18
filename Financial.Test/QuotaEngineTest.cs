@@ -60,5 +60,19 @@ namespace Financial.Test
             calendar.TotalCapital.Should().Be(3000);
 
         }
+
+        [Test]
+        public void GetCalendar_When_Capital_3000_Rate_20_Term_12_OutLay_Date_15112013_Return_Calendar_First_Quota_Expire_15122013_And_Last_Quota_Expire_10112014()
+        {
+            var loan = new QuotaEngine(3000, 0.2, 12, new DateTime(2013, 11, 15));
+            var calendar = loan.GetPaymentCalendar();
+            calendar.Should().BeOfType<PaymentCalendar>();
+            calendar.Quotas.Should().BeOfType<List<Quota>>();
+            calendar.Quotas.Count.Should().Be(12);
+            calendar.Quotas[0].Expire.Should().Be(new DateTime(2013, 12, 15));
+            calendar.Quotas[11].Expire.Should().Be(new DateTime(2014, 11, 10)); ;
+
+        }
+
     }
 }
