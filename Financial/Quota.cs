@@ -9,6 +9,7 @@ namespace Financial
     {
         private double _payRateAmount;
         private double _payCapital;
+        private double _defaultPay;
         public Double Capital { get; set; }
         public Double RateAmount { get; set; }
         public Double Total { get { return Capital + RateAmount; } }
@@ -35,9 +36,17 @@ namespace Financial
             get { return (RateAmount - PayRateAmount); }
         }
 
-
-        public void PayBack(double pay)
+        public double DefaultBalance
         {
+            get { return _defaultPay; }
+        }
+
+        public void PayBack(double pay, DateTime datePay)
+        {
+            if (Expire < datePay)
+            {
+                pay = pay - GetDefaultPay(datePay);
+            }
 
             var currentPay = GetPayAmmountFrom(RateAmountBalance, pay);
             pay = pay - currentPay;
@@ -50,7 +59,13 @@ namespace Financial
             Cancelled = ((CapitalBalance + RateAmountBalance) <= 0);
         }
 
-  
+        private double GetDefaultPay(DateTime datePay)
+        {
+            var daysDefault = (datePay - Expire).TotalDays;
+            var defaultToPay = (daysDefault * 1);
+            _defaultPay += defaultToPay;
+            return defaultToPay;
+        }
 
         private double GetPayAmmountFrom(double balance, double pay)
         {

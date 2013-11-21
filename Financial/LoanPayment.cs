@@ -12,9 +12,10 @@ namespace Financial
         {
             _paymentCalendar = paymentCalendar;
         }
-        public void PerformPay(double pay)
+
+        public void PerformPay(double pay, DateTime datePay)
         {
-            _paymentCalendar.Quotas[0].PayBack(pay);
+            _paymentCalendar.Quotas[0].PayBack(pay, datePay);
 
         }
     }
