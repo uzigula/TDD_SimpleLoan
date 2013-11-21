@@ -14,7 +14,8 @@ namespace Financial
         }
         public void PerformPay(double pay)
         {
-            _paymentCalendar.Quotas[0].Cancelled = true;
+            _paymentCalendar.Quotas[0].PayBack(pay);
+
         }
     }
 }

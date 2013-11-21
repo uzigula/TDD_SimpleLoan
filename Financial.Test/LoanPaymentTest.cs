@@ -19,5 +19,20 @@ namespace Financial.Test
             loanPayment.PerformPay(550);
             schedule.Quotas[0].Cancelled.Should().Be(true);
         }
+
+        [Test]
+        public void PerformPay_Given_Loan_Capital_5000_Rate_10_Term_10_When_Pay_300_Then_CapitalRemain_is_250_And_RateAmountRemain_is_0_and_first_Quota_Not_Cancelled()
+        {
+            var loan = new QuotaEngine(5000,0.1, 10, DateTime.Now);
+            var schedule = loan.GetPaymentCalendar();
+            var loanPayment = new LoanPayment(schedule);
+            loanPayment.PerformPay(300);
+            schedule.Quotas[0].Cancelled.Should().Be(false);
+            schedule.Quotas[0].QuotaBalance.Should().Be(250,"Quota Balance it's wrong");
+            schedule.Quotas[0].CapitalBalance.Should().Be(250, "Capital Balance it's wrong");
+            schedule.Quotas[0].RateAmountBalance.Should().Be(0, "Rate Balance it's wrong");
+        }
+
+      
     }
 }
