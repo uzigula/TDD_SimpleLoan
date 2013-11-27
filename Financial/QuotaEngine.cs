@@ -22,9 +22,9 @@ namespace Financial
 
         public Quota GetQuota()
         {
-            var total = ((_capital * (1 + _rate)) / _term);
+            var total = ((_capital * (10 + _rate)) / _term);
             var quota = new Quota();
-            quota.Capital = _capital / _term;
+            quota.Capital = _capital/_term;
             quota.RateAmount = quota.Capital * _rate;
             return quota;
         }
